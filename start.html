@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>START PAGE</title>
+    <style>
+
+        body {
+            margin: 0;
+        }
+        section.tarlac {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+        .d1 {
+            background-color: #424f17;
+            color: white;
+            width: auto;
+            height: 60px;
+            text-align: center;
+            margin: 0;
+            margin-top: 0;
+            padding: 1pt;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .terms {
+            background-color: #424f17;
+            color: white;
+            width:auto;
+            height: auto;
+            text-align: center;
+            margin: 0;
+            padding: 30px;
+        }
+
+        nav {
+            background-color: #424f17;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            margin-bottom: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: right;
+        }
+        nav li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .modal {
+            color: white;
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 300px;
+            background-color: #2e2d1d;
+            text-align: center;
+            line-height: 30px;
+
+        }
+        .close {
+            color: rgb(255, 255, 255);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            align-self: flex-end;
+        }
+        .close:hover,
+        .close:focus {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="logo.png" alt="logo" style="width: 100px;">
+        <ul>
+            <li><a href="#" onclick="showModal('about')">ABOUT</a></li>
+            <li><a href="#" onclick="showModal('services')">SERVICE</a></li>
+            <li><a href="#" onclick="showModal('contact')">CONTACT</a></li>
+            <li><a href="#" onclick="showModal('exit')">EXIT</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <section>
+        <div class="d1">
+            <h1>REAL ESTATE IN TARLAC</h1>
+        </div>
+
+    </section>
+
+    <section class="tarlac">
+        <img src="wallpaperr.jpg" alt="Tarlac City arial view">
+    </section>
+    <section>
+        <div class="terms">
+            <form>
+                <h1>TERMS AND CONDITIONS</h1>
+                <p>By accessing and using this website, you agree to comply 
+                    with and be bound by the following terms and conditions. 
+                    The content provided on this site is for informational 
+                    purposes only and should not be construed as legal or 
+                    professional advice. We reserve the right to modify these 
+                    terms at any time without prior notice, so please review 
+                    them regularly. Your continued use of the website constitutes 
+                    your acceptance of any changes made. If you do not agree with
+                     any of these terms, you must not use this website.</p>
+                <input type="checkbox" value="agree">
+                <label for="agree">I agree in the terms and conditions. </label>
+                <br><br>
+                <input type="Submit">
+            </form>
+        </div>
+    </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">MODAL TITLE</h2>
+            <p id="modal-content">CONTENT</p>
+            <a href="mailto:rcocrrealestate@business.com" id="modal-message" style="color: aqua;"></a>
+            <a href="https://www.facebook.com/" id="modal-fb" target="_blank" style="color: aqua;"></a>
+        </div>
+    </div>
+
+    <script>
+        function showModal(section) {
+            const modal = document.getElementById("myModal");
+            const modalTitle = document.getElementById("modal-title");
+            const modalContent = document.getElementById("modal-content");
+            const modalMessage = document.getElementById("modal-message");
+            const modalFB = document.getElementById("modal-fb");
+
+            if (section === 'about') {
+                modalTitle.innerText = "ABOUT US";
+                modalContent.innerText = "At RCOCR, we are dedicated to helping you find your dream home in Tarlac. With years of experience in the real estate market, our team of knowledgeable and passionate agents understands the unique needs of our clients. We pride ourselves on offering personalized service, guiding you through every step of the buying or selling process.";
+                modalMessage.style.display = "none";
+                modalFB.style.display = "none";
+            }
+            if (section === 'services') {
+                modalTitle.innerText = "OUR SERVICES";
+                modalContent.innerText = "At RCOCR, we offer a comprehensive range of real estate services tailored to meet your needs. Whether you're buying, selling, or renting, our experienced team is here to assist you every step of the way.";
+                modalMessage.style.display = "none";
+                modalFB.style.display = "none";
+            }
+            if (section === 'contact') {
+                modalTitle.innerText = "Contact Us";
+                modalContent.innerText = "We’re here to help you with all your real estate needs! Whether you have questions about buying, selling, or renting, our team at RCOCR is ready to assist you.";
+                modalMessage.innerText = "rcocrrealestate@business.com";
+                modalFB.innerText = "https://www.facebook.com/";
+                modalMessage.style.display = "block";
+                modalFB.style.display = "block";
+            }
+            if (section === 'exit') {
+                modalTitle.innerText = "Thankyou for Visiting our website!";
+                modalContent.innerText = "";
+                modalMessage.style.display = "none";
+                modalFB.style.display = "none";
+                setTimeout(() => {
+                    closeModal();
+                    alert("Goodbye!");
+                    window.close();
+                }, 2000);
+            }
+
+            modal.style.display = "block";
+
+        }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+        
+
+            window.onclick = function(event) {
+                const modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+            };
+
+        
+    </script>
+    
+</body>
+</html>
